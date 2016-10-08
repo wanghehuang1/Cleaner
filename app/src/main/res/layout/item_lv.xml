@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600px"
+    android:layout_height="wrap_content"
+    android:background="#BCD"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/item_item_lv"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:minHeight="20px">
+    </ListView>
+
+</LinearLayout>

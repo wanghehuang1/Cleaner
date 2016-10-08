@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="710px"
+    android:layout_marginTop="10px"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/common_back_iv"
+            android:layout_width="70px"
+            android:layout_height="50px"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30px"
+            android:background="@mipmap/common_back"
+            android:text="back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:paddingLeft="40px"
+            android:text="垃圾清理"
+            android:textColor="#FFF"
+            android:textSize="40px" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorPrimaryDark" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/clean_size_tv"
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300px"
+            android:gravity="right"
+            android:textColor="#FFF"
+            android:textSize="80px" />
+
+
+        <LinearLayout
+            android:id="@+id/top_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50px"
+                android:gravity="center"
+                android:text="MB"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50px"
+                android:gravity="center"
+                android:text="可清理内存"
+                android:textColor="#FFF" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_item_lay"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/log_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/log_dir" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="日志文件" />
+
+            <TextView
+                android:id="@+id/log_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right"
+                android:text="0.0MB" />
+
+            <CheckBox
+                android:id="@+id/log_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1000px"
+            android:layout_height="1px"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/ad_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/baidu_dir" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="广告文件" />
+
+            <TextView
+                android:id="@+id/ad_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right"
+                android:text="0.0MB" />
+
+            <CheckBox
+                android:id="@+id/ad_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1000px"
+            android:layout_height="1px"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/cache_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/cache_dir" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="缓存垃圾" />
+
+            <TextView
+                android:id="@+id/cache_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right"
+                android:text="0.0MB" />
+
+            <CheckBox
+                android:id="@+id/cache_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="true" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1000px"
+            android:layout_height="1px"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/app_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/apk_file" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="安装包" />
+
+            <TextView
+                android:id="@+id/app_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right"
+                android:text="0.0MB" />
+
+            <CheckBox
+                android:id="@+id/app_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1000px"
+            android:layout_height="1px"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/lost_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/lost_dir" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="无用的系统文件" />
+
+            <TextView
+                android:id="@+id/lost_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right"
+                android:text="0.0MB" />
+
+            <CheckBox
+                android:id="@+id/lost_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="true" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1000px"
+            android:layout_height="1px"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/empty_dir_lay"
+            android:layout_width="1000px"
+            android:layout_height="70px"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_gravity="center"
+                android:background="@drawable/empty_dir" />
+
+            <TextView
+                android:layout_width="500px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:gravity="left"
+                android:text="空文件夹" />
+
+            <TextView
+                android:id="@+id/empty_size_tv"
+                android:layout_width="140px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="240px"
+                android:gravity="right" />
+
+            <CheckBox
+                android:id="@+id/empty_check_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:checked="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/clean_all_btn"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="一键清理"
+        android:textColor="#FFF" />
+
+</LinearLayout>
