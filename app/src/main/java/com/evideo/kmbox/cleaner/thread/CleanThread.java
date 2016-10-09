@@ -61,7 +61,7 @@ public class CleanThread extends Thread {
         closeThread();
 
         //如果sd卡剩余空间还是小于某个值，比如200MB，则进行深度清理
-        if (FileUtil.getSDAvailableSize() < 200 * 1024 *1024) {
+        if (FileUtil.getSDAvailableSize() < 500 * 1024 *1024) {
             Intent intent = new Intent();
             intent.setClass(mContext, DeepCLeanActivity.class);
             mContext.startActivity(intent);
