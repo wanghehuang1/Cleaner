@@ -112,34 +112,34 @@ public class CleanManager {
         return this.itemLists;
     }
 
-    private void initItemLists() {
-        for (int i = 0; i < 6; i++) {
-            if (i == 5) {
-                continue;
-            }
-
-            itemLists[i] = new ArrayList<CleanItem>();
-            try {
-                for (int j = 0; j < CleanManager.PATHS[i].length; j++) {
-                    String path = CleanManager.PATHS[i][j];
-                    itemLists[i].addAll(getItems(path));
-                }
-                //如果程序正在运行，则将该项移除列表
-                if (i == 2) {
-                    List<String> listApp = RunningAppManager.getInstance().getRunnigAppPackages();
-                    for (CleanItem cleanItem : itemLists[i]) {
-                        if (listApp.contains(cleanItem.getName())){
-                            itemLists[i].remove(cleanItem);
-                            EvLog.d(cleanItem.getName() + " isRunning, removed it");
-                        };
-                    }
-                }
-            } catch (Exception e) {
-                EvLog.e("get null items");
-                e.printStackTrace();
-            }
-        }
-    }
+//    private void initItemLists() {
+//        for (int i = 0; i < 6; i++) {
+//            if (i == 5) {
+//                continue;
+//            }
+//
+//            itemLists[i] = new ArrayList<CleanItem>();
+//            try {
+//                for (int j = 0; j < CleanManager.PATHS[i].length; j++) {
+//                    String path = CleanManager.PATHS[i][j];
+//                    itemLists[i].addAll(getItems(path));
+//                }
+//                //如果程序正在运行，则将该项移除列表
+//                if (i == 2) {
+//                    List<String> listApp = RunningAppManager.getInstance().getRunnigAppPackages();
+//                    for (CleanItem cleanItem : itemLists[i]) {
+//                        if (listApp.contains(cleanItem.getName())){
+//                            itemLists[i].remove(cleanItem);
+//                            EvLog.d(cleanItem.getName() + " isRunning, removed it");
+//                        };
+//                    }
+//                }
+//            } catch (Exception e) {
+//                EvLog.e("get null items");
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     /**
      * [获取垃圾文件目录路径下的子文件项]

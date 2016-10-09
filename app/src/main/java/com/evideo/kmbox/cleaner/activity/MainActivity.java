@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener,
         mContext = this;
         CleanManager.getInstance().init();
         CleanManager.getInstance().setServeCallBack(this);
-        RunningAppManager.getInstance().getRunningAppLists(mContext);
+//        RunningAppManager.getInstance().getRunningAppLists(mContext);
         mItemView = CleanManager.getInstance().getItemView();
         initView();
 
