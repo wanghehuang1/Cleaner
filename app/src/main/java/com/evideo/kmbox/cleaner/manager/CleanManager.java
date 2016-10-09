@@ -40,15 +40,15 @@ public class CleanManager {
     /**
      * 广告文件
      */
-    public static final String[] AD_DIR_PATH = {"baidu", "360Download", "wandoujia/app/"};
+    public static final String[] AD_DIR_PATH = {"baidu", "360Download", "wandoujia/app", "Tencent"};
     /**
      * 无用缓存文件
      */
-    public static final String[] CACHE_DIR_PATH = {"Android/data/"};
+    public static final String[] CACHE_DIR_PATH = {"Android/data"};
     /**
      * 无用安装包
      */
-    public static final String[] APK_FILE_PATH = {"kmbox/assets/app/updateapk", "download"};
+    public static final String[] APK_FILE_PATH = {"kmbox/assets/app/updateapk", "download", "com.togic.livevideo/cache", "bddownload"};
     /**
      * 空文件夹
      */

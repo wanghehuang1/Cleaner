@@ -49,13 +49,13 @@ public class CountSizeThread extends Thread {
 
         long[] size = new long[6];
         for (int i = 0; i < 6; i++) {
+            size[i] = 0;
             if (i == 5) {
-                size[i] = 0;
                 continue;
             }
             for (int j = 0; j < CleanManager.PATHS[i].length; j++) {
                 try {
-                    size[i] = FileUtil.getFileSize(new File(CleanManager.getInstance().getRootPath() +
+                    size[i] += FileUtil.getFileSize(new File(CleanManager.getInstance().getRootPath() +
                             File.separator + CleanManager.PATHS[i][j]));
                 } catch (Exception e) {
                     e.printStackTrace();

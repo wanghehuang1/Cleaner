@@ -11,6 +11,14 @@
 
 package com.evideo.kmbox.cleaner.thread;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+
+import com.evideo.kmbox.cleaner.activity.DeepCLeanActivity;
+import com.evideo.kmbox.cleaner.activity.MainActivity;
+import com.evideo.kmbox.cleaner.base.BaseApplication;
 import com.evideo.kmbox.cleaner.manager.CleanManager;
 import com.evideo.kmbox.cleaner.util.EvLog;
 import com.evideo.kmbox.cleaner.util.FileUtil;
@@ -25,8 +33,10 @@ import java.io.File;
 public class CleanThread extends Thread {
 
     private boolean isEmptyDirChecked = false;
+    private Context mContext;
 
-    public CleanThread( boolean isEmptyDirChecked) {
+    public CleanThread(Context context, boolean isEmptyDirChecked) {
+        this.mContext = context;
         this.isEmptyDirChecked = isEmptyDirChecked;
     }
 
@@ -49,6 +59,13 @@ public class CleanThread extends Thread {
             cleanEmptyFolder(CleanManager.getInstance().getRootPath());
         }
         closeThread();
+
+        //如果sd卡剩余空间还是小于某个值，比如200MB，则进行深度清理
+        if (FileUtil.getSDAvailableSize() < 200 * 1024 *1024) {
+            Intent intent = new Intent();
+            intent.setClass(mContext, DeepCLeanActivity.class);
+            mContext.startActivity(intent);
+        }
     }
 
     /**

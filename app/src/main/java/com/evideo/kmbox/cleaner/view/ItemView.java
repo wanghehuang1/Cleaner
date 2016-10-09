@@ -1,11 +1,8 @@
 package com.evideo.kmbox.cleaner.view;
 
 import android.annotation.TargetApi;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,20 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.evideo.kmbox.cleaner.R;
 import com.evideo.kmbox.cleaner.adapter.ItemAdapter;
 import com.evideo.kmbox.cleaner.manager.CleanManager;
-import com.evideo.kmbox.cleaner.manager.RunningAppManager;
 import com.evideo.kmbox.cleaner.model.CleanItem;
-import com.evideo.kmbox.cleaner.model.RunningAppInfo;
 import com.evideo.kmbox.cleaner.util.EvLog;
 import com.evideo.kmbox.cleaner.util.FileUtil;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ItemView implements AdapterView.OnItemClickListener {
 
@@ -52,24 +45,13 @@ public class ItemView implements AdapterView.OnItemClickListener {
             try {
                 for (int j = 0; j < CleanManager.PATHS[i].length; j++) {
                     String path = CleanManager.PATHS[i][j];
-                    //如果程序正在运行，则将该项移除列表
+                    //将己方应用屏蔽掉不清
                     if (i == 2) {
-                        List<String> listApp = RunningAppManager.getInstance().getRunnigAppPackages();
-                        for (CleanItem cleanItem : getItems(path)) {
-                            if (!listApp.contains(cleanItem.getName())) {
+                        ArrayList<CleanItem> cleanItems = getItems(path);
+                        for (CleanItem cleanItem : cleanItems) {
+                            if (!cleanItem.getName().equals("com.evideo.kmbox") && !cleanItem.getName().equals("com.evideo.plugin.littlektv")) {
                                 itemLists[i].add(cleanItem);
-                                EvLog.d(cleanItem.getName() + " isNotRunning");
-                            } else {
-                                EvLog.d(cleanItem.getName() + " isRunning");
-                                CleanManager.getInstance().sendRemoveSizeMessage(i, cleanItem.getSize());
                             }
-//                            for (int k=0; k<listApp.size(); k++) {
-//                                if (listApp.get(k).equals(itemLists[i].get(j).getName())){
-//                                    EvLog.d(itemLists[i].get(j).getName() + " isRunning, removed it");
-//                                    CleanManager.getInstance().sendRemoveSizeMessage(i, itemLists[i].get(j).getSize());
-//                                    itemLists[i].remove(j);
-//                                }
-//                            }
                         }
                     }else {
                         itemLists[i].addAll(getItems(path));
@@ -148,7 +130,8 @@ public class ItemView implements AdapterView.OnItemClickListener {
         }
         for (File subfile : files) {
             //隐藏文件夹下的apk
-            if (subfile.getName().startsWith(".")) {
+            if (subfile.getName().equals(".molitv")) {
+//            if (subfile.getName().startsWith(".")) {
                 File[] hidefiles = subfile.listFiles();
                 for (File hidefile : hidefiles) {
                     itemList.add(new CleanItem(hidefile.getAbsolutePath(),

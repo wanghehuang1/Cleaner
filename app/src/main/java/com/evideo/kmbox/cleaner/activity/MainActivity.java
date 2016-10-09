@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 
 import com.evideo.kmbox.cleaner.R;
 import com.evideo.kmbox.cleaner.manager.CleanManager;
-import com.evideo.kmbox.cleaner.manager.RunningAppManager;
 import com.evideo.kmbox.cleaner.model.CleanConfig;
 import com.evideo.kmbox.cleaner.thread.CleanThread;
 import com.evideo.kmbox.cleaner.thread.CountSizeThread;
@@ -79,6 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener,
         initView();
 
         startCountSizeThread();
+        EvLog.d("Sdcard Available Size is " + formateItemSize(FileUtil.getSDAvailableSize()));
 //        mItemView.init();
     }
 
@@ -140,7 +139,7 @@ public class MainActivity extends Activity implements View.OnClickListener,
     }
 
     private void startCleanThread() {
-        mCleanThread = new CleanThread(isEmptyDirChecked);
+        mCleanThread = new CleanThread(mContext, isEmptyDirChecked);
         mCleanThread.start();
     }
 
